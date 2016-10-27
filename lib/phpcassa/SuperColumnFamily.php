@@ -10,7 +10,7 @@ use cassandra\ColumnPath;
 use cassandra\CounterColumn;
 use cassandra\CounterSuperColumn;
 use cassandra\ColumnOrSuperColumn;
-use cassandra\Column;
+use phpcassa\cassandra\Column;
 use cassandra\SuperColumn;
 
 /**

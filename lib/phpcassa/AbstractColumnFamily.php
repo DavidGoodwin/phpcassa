@@ -21,7 +21,7 @@ use cassandra\NotFoundException;
 use cassandra\Mutation;
 use cassandra\Deletion;
 use cassandra\ConsistencyLevel;
-use cassandra\Column;
+use phpcassa\cassandra\Column;
 use cassandra\ColumnParent;
 use cassandra\ColumnPath;
 use cassandra\ColumnOrSuperColumn;
