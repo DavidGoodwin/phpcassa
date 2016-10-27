@@ -3,12 +3,12 @@
     "description": "PHP Cassandra Library",
     "keywords": ["Cassandra"],
     "type": "library",
-    "homepage": "https://github.com/thobbs/phpcassa",
+    "homepage": "https://github.com/jsyoo/phpcassa",
     "license": "MIT",
     "authors": [
         {
-            "name": "Tyler Hobbs",
-            "homepage": "https://github.com/thobbs/phpcassa"
+            "name": "Jaesang Yoo",
+            "homepage": "https://github.com/jsyoo/phpcassa"
         }
     ],
     "require": {
