@@ -1,5 +1,5 @@
 {
-    "name": "thobbs/phpcassa",
+    "name": "jsyoo/phpcassa",
     "description": "PHP Cassandra Library",
     "keywords": ["Cassandra"],
     "type": "library",
