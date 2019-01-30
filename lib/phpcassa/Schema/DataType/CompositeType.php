@@ -12,7 +12,7 @@ use phpcassa\ColumnFamily;
 class CompositeType extends CassandraType implements Serialized
 {
     /**
-     * @param phpcassa\Schema\DataType\CassandraType[] $inner_types an array
+     * @param \phpcassa\Schema\DataType\CassandraType[] $inner_types an array
      *        of other CassandraType instances.
      */
     public function __construct($inner_types) {
@@ -83,7 +83,7 @@ class CompositeType extends CassandraType implements Serialized
 
     public function __toString() {
         $inner_strs = array();
-        foreach ($inner_types as $inner_type) {
+        foreach ($this->inner_types as $inner_type) {
             $inner_strs[] = (string)$inner_type;
         }
 

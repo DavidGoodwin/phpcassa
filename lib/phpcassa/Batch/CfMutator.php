@@ -1,6 +1,7 @@
 <?php
 namespace phpcassa\Batch;
 
+use cassandra\ConsistencyLevel;
 use phpcassa\Batch\AbstractMutator;
 
 /**
@@ -16,10 +17,10 @@ class CfMutator extends AbstractMutator {
     /**
      * Initialize a mutator for a given column family.
      *
-     * @param phpcassa\ColumnFamily $column_family an initialized instanced
+     * @param \phpcassa\ColumnFamily $column_family an initialized instanced
      *        of ColumnFamily; this object's pool will be used for all
      *        operations.
-     * @param phpcassa\ConsistencyLevel $write_consistency_level the consistency
+     * @param ConsistencyLevel $write_consistency_level the consistency
      *        level this mutator will write at; if left as NULL, this defaults to
      *        $column_family->write_consistency_level.
      */

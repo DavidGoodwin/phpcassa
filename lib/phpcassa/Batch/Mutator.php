@@ -14,9 +14,9 @@ class Mutator extends AbstractMutator
     /**
      * Intialize a mutator with a connection pool and consistency level.
      *
-     * @param phpcassa\Connection\ConnectionPool $pool the connection pool to
+     * @param \phpcassa\Connection\ConnectionPool $pool the connection pool to
      *        use for all operations
-     * @param cassandra\ConsistencyLevel $consistency_level the default consistency
+     * @param int  $consistency_level the default consistency
      *        level this mutator will write at, with a default of
      *        ConsistencyLevel::ONE
      */
@@ -30,7 +30,7 @@ class Mutator extends AbstractMutator
     /**
      * Add an insertion to the buffer.
      *
-     * @param phpcassa\ColumnFamily $column_family an initialized
+     * @param \phpcassa\ColumnFamily $column_family an initialized
      *        ColumnFamily instance
      * @param mixed $key the row key
      * @param mixed[] $columns an array of columns to insert, whose format
@@ -46,7 +46,7 @@ class Mutator extends AbstractMutator
     /**
      * Add a deletion to the buffer.
      *
-     * @param phpcassa\ColumnFamily $column_family an initialized
+     * @param \phpcassa\ColumnFamily $column_family an initialized
      *        ColumnFamily instance
      * @param mixed $key the row key
      * @param mixed[] $columns a list of columns or super columns to delete

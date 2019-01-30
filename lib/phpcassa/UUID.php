@@ -342,12 +342,12 @@ class UUID {
    self::$randomSource = fopen('/dev/urandom', 'rb');
    self::$randomFunc = 'randomFRead';
   }
-  else if (class_exists('COM', 0)) {
+  else if (class_exists('\COM', 0)) {
    try {
-    self::$randomSource = new COM('CAPICOM.Utilities.1');  // See http://msdn.microsoft.com/en-us/library/aa388182(VS.85).aspx
+    self::$randomSource = new \COM('CAPICOM.Utilities.1');  // See http://msdn.microsoft.com/en-us/library/aa388182(VS.85).aspx
     self::$randomFunc = 'randomCOM';
    }
-   catch(Exception $e) {}
+   catch(\Exception $e) {}
   }
   return self::$randomFunc;
  } 

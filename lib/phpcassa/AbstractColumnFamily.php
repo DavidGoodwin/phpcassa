@@ -155,7 +155,7 @@ abstract class AbstractColumnFamily {
     /**
      * Constructs a ColumnFamily.
      *
-     * @param phpcassa\Connection\ConnectionPool $pool the pool to use when
+     * @param \phpcassa\Connection\ConnectionPool $pool the pool to use when
      *        querying Cassandra
      * @param string $column_family the name of the column family in Cassandra
      * @param bool $autopack_names whether or not to automatically convert column names
@@ -513,7 +513,7 @@ abstract class AbstractColumnFamily {
      *        server will overallocate memory and fail.  This is the size of
      *        that buffer in number of rows.
      *
-     * @return phpcassa\Iterator\RangeColumnFamilyIterator
+     * @return \phpcassa\Iterator\RangeColumnFamilyIterator
      */
     public function get_range($key_start="",
         $key_finish="",
@@ -535,8 +535,7 @@ abstract class AbstractColumnFamily {
         if ($buffsz == null)
             $buffsz = $this->buffer_size;
         if ($buffsz < 2) {
-            $ire = new InvalidRequestException();
-            $ire->message = 'buffer_size cannot be less than 2';
+            $ire = new InvalidRequestException('buffer_size cannot be less than 2');
             throw $ire;
         }
 
@@ -576,7 +575,7 @@ abstract class AbstractColumnFamily {
      *        server will overallocate memory and fail.  This is the size of
      *        that buffer in number of rows.
      *
-     * @return phpcassa\Iterator\RangeColumnFamilyIterator
+     * @return \phpcassa\Iterator\RangeColumnFamilyIterator
      */
     public function get_range_by_token($token_start="",
                               $token_finish="",
@@ -598,8 +597,7 @@ abstract class AbstractColumnFamily {
         if ($buffsz == null)
             $buffsz = $this->buffer_size;
         if ($buffsz < 2) {
-            $ire = new InvalidRequestException();
-            $ire->message = 'buffer_size cannot be less than 2';
+            $ire = new InvalidRequestException('buffer_size cannot be less than 2');
             throw $ire;
         }
 
@@ -614,14 +612,14 @@ abstract class AbstractColumnFamily {
     /**
      * Fetch a set of rows from this column family based on an index clause.
      *
-     * @param phpcassa\Index\IndexClause $index_clause limits the keys that are returned based
+     * @param \phpcassa\Index\IndexClause $index_clause limits the keys that are returned based
      *        on expressions that compare the value of a column to a given value.  At least
      *        one of the expressions in the IndexClause must be on an indexed column.
-     * @param phpcassa\ColumnSlice a slice of columns to fetch, or null
+     * @param \phpcassa\ColumnSlice a slice of columns to fetch, or null
      * @param mixed[] $column_names limit the columns or super columns fetched to this list
      * number of nodes that must respond before the operation returns
      *
-     * @return phpcassa\Iterator\IndexedColumnFamilyIterator
+     * @return \phpcassa\Iterator\IndexedColumnFamilyIterator
      */
     public function get_indexed_slices($index_clause,
         $column_slice=null,
@@ -632,8 +630,7 @@ abstract class AbstractColumnFamily {
         if ($buffer_size == null)
             $buffer_size = $this->buffer_size;
         if ($buffer_size < 2) {
-            $ire = new InvalidRequestException();
-            $ire->message = 'buffer_size cannot be less than 2';
+            $ire = new InvalidRequestException('buffer_size cannot be less than 2');
             throw $ire;
         }
 
@@ -721,7 +718,7 @@ abstract class AbstractColumnFamily {
                     $this->make_mutation($columns, $timestamp, $ttlRow);
             }
         } else {
-            throw new UnexpectedValueException("Bad insert_format selected");
+            throw new \UnexpectedValueException("Bad insert_format selected");
         }
 
         return $this->pool->call("batch_mutate", $cfmap, $this->wcl($consistency_level));
@@ -731,10 +728,10 @@ abstract class AbstractColumnFamily {
      * Create a new phpcassa\Batch\CfMutator instance targetting this column
      * family.
      *
-     * @param phpcassa\ConsistencyLevel $consistency_level the consistency
+     * @param ConsistencyLevel $consistency_level the consistency
      *        level the batch mutator will write at; if left as NULL, this
      *        defaults to phpcassa\ColumnFamily::write_consistency_level.
-     * @return a phpcassa\Batch\CfMutator instance
+     * @return \phpcassa\Batch\CfMutator instance
      */
     public function batch($consistency_level=null) {
         return new CfMutator($this, $consistency_level);
@@ -1107,7 +1104,7 @@ abstract class AbstractColumnFamily {
         } else if ($this->insert_format == self::ARRAY_FORMAT) {
             return $this->array_to_coscs($data, $timestamp, $ttl);
         } else {
-            throw new UnexpectedValueException("Bad insert_format selected");
+            throw new \UnexpectedValueException("Bad insert_format selected");
         }
     }
 

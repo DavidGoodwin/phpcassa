@@ -441,7 +441,7 @@ class SystemManager {
      *
      * @param string $keyspace the keyspace name
      *
-     * @return cassandra\KsDef
+     * @return \cassandra\KsDef
      */
     public function describe_keyspace($keyspace) {
         return $this->client->describe_keyspace($keyspace);
@@ -450,7 +450,7 @@ class SystemManager {
     /**
      * Like describe_keyspace(), but for all keyspaces.
      *
-     * @return array an array of cassandra\KsDef
+     * @return \cassandra\KsDef[]
      */
     public function describe_keyspaces() {
         return $this->client->describe_keyspaces();

@@ -22,7 +22,7 @@ abstract class AbstractMutator
      * If an error occurs, the buffer will be preserverd, allowing you to
      * attempt to call send() again later or take other recovery actions.
      *
-     * @param cassandra\ConsistencyLevel $consistency_level optional
+     * @param \cassandra\ConsistencyLevel $consistency_level optional
      *        override for the mutator's default consistency level
      */
     public function send($consistency_level=null) {

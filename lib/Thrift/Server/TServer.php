@@ -16,7 +16,7 @@ abstract class TServer {
   /**
    * Processor to handle new clients
    *
-   * @var TProcessor
+   * @var mixed
    */
   protected $processor_;
 

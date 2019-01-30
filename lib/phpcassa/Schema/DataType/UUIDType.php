@@ -20,7 +20,7 @@ class UUIDType extends CassandraType implements Serialized
         if (!$is_uuid && is_string($value)) {
             try {
                 $value = UUID::import($value);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 throw new UUIDException("Error casting '$value' to UUID: $e");
             }
         } else if (!$is_uuid) {

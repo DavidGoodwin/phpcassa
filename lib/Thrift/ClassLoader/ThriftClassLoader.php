@@ -35,7 +35,7 @@ class ThriftClassLoader
 
     /**
      * Thrift definition paths
-     * @var type
+     * @var array
      */
     protected $definitions = array();
 
@@ -87,7 +87,7 @@ class ThriftClassLoader
     /**
      * Registers this instance as an autoloader.
      *
-     * @param Boolean $prepend Whether to prepend the autoloader or not
+     * @param boolean $prepend Whether to prepend the autoloader or not
      */
     public function register($prepend = false)
     {

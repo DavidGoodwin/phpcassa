@@ -23,6 +23,7 @@ namespace Thrift\Factory;
 
 use Thrift\StringFunc\Mbstring;
 use Thrift\StringFunc\Core;
+use Thrift\StringFunc\TStringFunc;
 
 class TStringFuncFactory {
     private static $_instance;

@@ -1,6 +1,7 @@
 <?php
 namespace phpcassa;
 
+use cassandra\ConsistencyLevel;
 use phpcassa\ColumnFamily;
 use phpcassa\ColumnSlice;
 
@@ -150,7 +151,7 @@ class SuperColumnFamily extends AbstractColumnFamily {
      *        server will overallocate memory and fail.  This is the size of
      *        that buffer in number of rows.
      *
-     * @return phpcassa\Iterator\RangeColumnFamilyIterator
+     * @return \phpcassa\Iterator\RangeColumnFamilyIterator
      */
     public function get_super_column_range($super_column,
                                            $key_start="",
