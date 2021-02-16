@@ -26,6 +26,8 @@ namespace Thrift\Protocol;
 use Thrift\Protocol\TProtocol;
 use Thrift\Type\TType;
 use Thrift\Exception\TProtocolException;
+use Thrift\Exception\TException;
+
 use Thrift\Protocol\JSON\BaseContext;
 use Thrift\Protocol\JSON\LookaheadReader;
 use Thrift\Protocol\JSON\PairContext;

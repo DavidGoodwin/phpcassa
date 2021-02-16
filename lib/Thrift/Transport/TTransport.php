@@ -23,7 +23,7 @@
 namespace Thrift\Transport;
 
 use Thrift\Factory\TStringFuncFactory;
-
+use Thrift\Exception\TTransportException;
 /**
  * Base interface for a transport agent.
  *

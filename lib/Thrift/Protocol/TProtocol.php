@@ -22,6 +22,7 @@
 
 namespace Thrift\Protocol;
 
+use Thirft\Exception\TException;
 use Thrift\Transport\TTransport;
 use Thrift\Type\TType;
 use Thrift\Exception\TProtocolException;
